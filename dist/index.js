@@ -43,10 +43,18 @@ const core = __importStar(__nccwpck_require__(2186));
 // impelment the github action that print the time in the console
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
+        var _a;
         try {
-            const time = new Date().toTimeString();
-            core.setOutput('time', time);
-            core.info(`The time is ${time}`);
+            let organization = core.getInput('organization');
+            const token = core.getInput('token');
+            const issue_number = core.getInput('issue_number');
+            // If organization is not provided, use the current one
+            if (!organization) {
+                organization = ((_a = process.env.GITHUB_REPOSITORY) === null || _a === void 0 ? void 0 : _a.split('/')[0]) || '';
+            }
+            core.info(`Organization: ${organization}`);
+            core.info(`Token: ${token}`);
+            core.info(`Issue number: ${issue_number}`);
         }
         catch (error) {
             const errorMessage = error.message;
