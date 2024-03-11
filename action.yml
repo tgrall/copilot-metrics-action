@@ -3,6 +3,16 @@
 name: 'Copilot Metrics'
 description: 'Create reports of Copilot Usage'
 author: '@tgrall'
+inputs:
+  organization:
+    description: 'Organization used to managed users/metrics, if not provided the current organization will be used'
+    required: false
+  token:
+    description: 'GitHub Token to access the API'
+    required: true
+  issue_number:
+    description: 'Issue number to update with the metrics'
+    required: true
 runs:
   using: 'node20'
   main: 'dist/index.js'
