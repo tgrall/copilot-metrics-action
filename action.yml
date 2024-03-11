@@ -1,0 +1,8 @@
+# Avoid using default values for options here since they will
+# end up overriding external configurations.
+name: 'Copilot Metrics'
+description: 'Create reports of Copilot Usage'
+author: '@tgrall'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
